@@ -1,13 +1,21 @@
 ver=2021.5-1
 url1=https://github.com/kiss-community/repo/releases/download/$ver
 url2=raw.githubusercontent.com/kisslinux/kiss/master/contrib
+hn=mcpcpc
 
 mkfs.ext4 /dev/sda1
 mkfs.ext4 /dev/sda3
 mkfs.vfat -F 32 /dev/sda2
 mount /dev/sda3 /mnt
+
 wget "$url1/kiss-chroot.tar.xz"
 tar xvf kiss-chroot.tar.xz -C /mnt --strip-components 1
 wget "$url2/kiss-chroot"
 chmod +x kiss-chroot
-
+mount /dev/sda1 /mnt/boot
+mkdir /mnt/boot/efi
+mount /dev/sda2 /mnt/boot/efi
+echo -e "/dev/sda1\t\t/boot\t\tvfat\t\tnoauto,noatime\t1 2" >> /mnt/etc/fstab
+echo -e "/dev/sda3\t\t/\t\text4\t\tnoatime\t\t0 1" >> /mnt/etc/fstab
+echo "$hn" >> /mnt/etc/hostname
+./kiss-chroot /mnt
