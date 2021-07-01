@@ -1,6 +1,7 @@
 #!/bin/sh -e
 #
-# Install KISS Linux OS on a Linode VPS
+# Kinode
+# Description: KISS Linux OS installation script for a Linode VPS
 # Author: Michael Czigler
 
 # set global variables
