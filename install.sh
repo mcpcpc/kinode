@@ -1,11 +1,12 @@
+#!/bin/sh
+# script to configure and install KISS Linux on a Linode VPS
 ver=2021.5-1
 url=https://github.com/kiss-community/repo/releases/download/$ver
 hn=mcpcpc
+sdX=sda
 
-cd ~/
+cd $HOME
 mkfs.ext4 /dev/sda1
-#!/bin/sh
-# script to configure and install KISS Linux on a Linode VPS
 mkfs.ext4 /dev/sda3
 mkfs.vfat -F 32 /dev/sda2
 mount /dev/sda3 /mnt
