@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 #
 # Install KISS Linux OS on a Linode VPS
 # Author: Michael Czigler
@@ -52,4 +52,4 @@ EOT
 # su mc
 # mkdir $HOME/repos
 # cd $HOME/repos
-git clone https://github.com/kiss-community/repo  
+# git clone https://github.com/kiss-community/repo  
