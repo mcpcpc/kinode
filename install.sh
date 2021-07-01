@@ -7,8 +7,8 @@ hn=mcpcpc
 sdX=sda
 
 cd $HOME
-mkfs.ext4 /dev/sda1
-mkfs.ext4 /dev/sda3
+mkfs.ext4 -F /dev/sda1
+mkfs.ext4 -F /dev/sda3
 mkfs.vfat -F 32 /dev/sda2
 mount /dev/sda3 /mnt
 wget "$url/kiss-chroot-$ver.tar.xz" 
