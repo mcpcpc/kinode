@@ -2,7 +2,7 @@
 #
 # Kinode
 # Description: KISS Linux OS installation script for a Linode VPS
-# Author: Michael Czigler
+# Author:      Michael Czigler
 
 # set global variables
 ver=2021.5-1
