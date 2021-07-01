@@ -18,3 +18,17 @@ echo "$hn" >> /mnt/etc/hostname
 wget "$url2/kiss-chroot"
 chmod +x kiss-chroot
 ./kiss-chroot /mnt
+
+
+export CFLAGS="-O1 -pipe -march=native"
+export CXXFLAGS="-O1 -pipe -march=native"
+export MAKEFLAGS="-j2"
+export KISS_PROMPT=0
+kiss update
+cd /var/db/kiss/installed && kiss build *
+kiss b e2fsprogs && kiss i e2fsprogs
+kiss b dosfstools && kiss i dosfstools
+kiss b eudev && kiss i eudev
+kiss b libelf && kiss i libelf
+kiss b ncurses && kiss i ncurses
+kiss b openssh && kiss i openssh
