@@ -4,6 +4,8 @@ hn=mcpcpc
 
 cd ~/
 mkfs.ext4 /dev/sda1
+#!/bin/sh
+# script to configure and install KISS Linux on a Linode VPS
 mkfs.ext4 /dev/sda3
 mkfs.vfat -F 32 /dev/sda2
 mount /dev/sda3 /mnt
@@ -15,19 +17,11 @@ mount /dev/sda2 /mnt/boot/efi
 echo -e "/dev/sda1\t\t/boot\t\tvfat\t\tnoauto,noatime\t1 2" >> /mnt/etc/fstab
 echo -e "/dev/sda3\t\t/\t\text4\t\tnoatime\t\t0 1" >> /mnt/etc/fstab
 echo "$hn" >> /mnt/etc/hostname
-/mnt/bin/kiss-chroot /mnt
-
-
+/mnt/bin/kiss-chroot /mnt <<"EOT"
 export CFLAGS="-O1 -pipe -march=native"
 export CXXFLAGS="-O1 -pipe -march=native"
 export MAKEFLAGS="-j2"
 export KISS_PROMPT=0
-export KISS_PATH=''
-KISS_PATH=$KISS_PATH:$HOME/repos/repo/core 
-KISS_PATH=$KISS_PATH:$HOME/repos/repo/extra
-KISS_PATH=$KISS_PATH:$HOME/repos/repo/xorg
-mkdir $HOME/repos
-cd $HOME/repos
 git clone https://github.com/kiss-community/repo  
 kiss update
 cd /var/db/kiss/installed && kiss build *
@@ -37,3 +31,13 @@ kiss b eudev && kiss i eudev
 kiss b libelf && kiss i libelf
 kiss b ncurses && kiss i ncurses
 kiss b openssh && kiss i openssh
+adduser mc
+addgroup mc video
+addgroup mv audio
+export KISS_PATH=''
+KISS_PATH=$KISS_PATH:$HOME/repos/repo/core 
+KISS_PATH=$KISS_PATH:$HOME/repos/repo/extra
+KISS_PATH=$KISS_PATH:$HOME/repos/repo/xorg
+mkdir $HOME/repos
+EOT
+cd $HOME/repos
