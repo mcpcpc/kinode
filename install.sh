@@ -2,6 +2,7 @@
 # script to configure and install KISS Linux on a Linode VPS
 ver=2021.5-1
 url=https://github.com/kiss-community/repo/releases/download/$ver
+giturl=
 hn=mcpcpc
 sdX=sda
 
@@ -23,7 +24,6 @@ export CFLAGS="-O1 -pipe -march=native"
 export CXXFLAGS="-O1 -pipe -march=native"
 export MAKEFLAGS="-j2"
 export KISS_PROMPT=0
-git clone https://github.com/kiss-community/repo  
 kiss update
 cd /var/db/kiss/installed && kiss build *
 kiss b e2fsprogs && kiss i e2fsprogs
@@ -35,10 +35,8 @@ kiss b openssh && kiss i openssh
 adduser mc
 addgroup mc video
 addgroup mv audio
-export KISS_PATH=''
-KISS_PATH=$KISS_PATH:$HOME/repos/repo/core 
-KISS_PATH=$KISS_PATH:$HOME/repos/repo/extra
-KISS_PATH=$KISS_PATH:$HOME/repos/repo/xorg
-mkdir $HOME/repos
+#mkdir ~/repos
+#cd ~/repos
+#git clone https://github.com/kiss-community/repo  
+echo $$
 EOT
-cd $HOME/repos
