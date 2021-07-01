@@ -9,12 +9,12 @@ mkfs.vfat -F 32 /dev/sda2
 mount /dev/sda3 /mnt
 wget "$url1/kiss-chroot-$ver.tar.xz" 
 tar xvf kiss-chroot-$ver.tar.xz -C /mnt --strip-components 1
-wget "$url2/kiss-chroot"
-chmod +x kiss-chroot
 mount /dev/sda1 /mnt/boot
 mkdir /mnt/boot/efi
 mount /dev/sda2 /mnt/boot/efi
 echo -e "/dev/sda1\t\t/boot\t\tvfat\t\tnoauto,noatime\t1 2" >> /mnt/etc/fstab
 echo -e "/dev/sda3\t\t/\t\text4\t\tnoatime\t\t0 1" >> /mnt/etc/fstab
 echo "$hn" >> /mnt/etc/hostname
+wget "$url2/kiss-chroot"
+chmod +x kiss-chroot
 ./kiss-chroot /mnt
