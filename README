@@ -1,5 +1,5 @@
 ver=2021.5-1
-url1=url=https://github.com/kiss-community/repo/releases/download/$ver
+url1=https://github.com/kiss-community/repo/releases/download/$ver
 url2=raw.githubusercontent.com/kisslinux/kiss/master/contrib
 hn=mcpcpc
 
