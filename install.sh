@@ -6,7 +6,6 @@
 # set global variables
 ver=2021.5-1
 url=https://github.com/kiss-community/repo/releases/download/$ver
-giturl=
 user=mcpcpc
 sdX=sda
 
@@ -42,6 +41,13 @@ kiss b eudev && kiss i eudev
 kiss b libelf && kiss i libelf
 kiss b ncurses && kiss i ncurses
 kiss b openssh && kiss i openssh
+wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.47.tar.xz -P /usr/src
+tar xvf /usr/src/linux-*
+cd /usr/src/linux-*
+wget https://raw.githubusercontent.com/mcpcpc/kinode/master/.config
+make -j1
+make modules_install
+make install
 echo $$
 EOT
 
