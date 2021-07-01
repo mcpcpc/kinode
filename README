@@ -7,7 +7,6 @@ mkfs.ext4 /dev/sda1
 mkfs.ext4 /dev/sda3
 mkfs.vfat -F 32 /dev/sda2
 mount /dev/sda3 /mnt
-
 wget "$url1/kiss-chroot.tar.xz"
 tar xvf kiss-chroot.tar.xz -C /mnt --strip-components 1
 wget "$url2/kiss-chroot"
