@@ -9,7 +9,6 @@ ver=2021.5-1
 url=https://github.com/kiss-community/repo/releases/download/$ver
 
 # format and partition drive, sdX
-cd $HOME
 printf "o\nn\np\n1\n\n\nw\n" | fdisk /dev/sda
 mkfs.ext4 -F /dev/sda1
 #mkfs.ext4 -F /dev/sda3
@@ -18,8 +17,8 @@ mkfs.ext4 -F /dev/sda1
 # prepare drive for chroot/boostrap process
 #mount /dev/sda3 /mnt
 mount /dev/sda1 /mnt
-wget "$url/kiss-chroot-$ver.tar.xz" 
-tar xvf kiss-chroot-$ver.tar.xz -C /mnt --strip-components 1
+wget "$url/kiss-chroot-$ver.tar.xz" -P "$HOME"
+tar xvf "$HOME/kiss-chroot-$ver.tar.xz" -C /mnt --strip-components 1
 #mount /dev/sda1 /mnt/boot
 #mkdir /mnt/boot/efi
 #mount /dev/sda2 /mnt/boot/efi
