@@ -40,7 +40,7 @@ kiss b openssh && kiss i openssh
 wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.47.tar.xz -P /usr/src
 tar xvf /usr/src/linux-*
 cd /usr/src/linux-*
-wget https://raw.githubusercontent.com/mcpcpc/kinode/master/.config
+wget https://raw.githubusercontent.com/mcpcpc/kinode/master/.config.test
 make -j1
 make modules_install
 make install
