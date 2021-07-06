@@ -57,6 +57,9 @@ mv /boot/System.map /boot/System.map-5.10.47
 kiss b grub && kiss i grub
 grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
+kiss b baseinit && kiss i baseinit
+ln -s /etc/sv/udevd/ /var/service
+ln -s /etc/sv/sshd/ /var/service
 echo "kinode" | passwd --stdin root
 echo $$
 EOT
