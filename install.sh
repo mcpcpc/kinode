@@ -7,17 +7,19 @@
 # set global variables
 ver=2021.5-1
 url=https://github.com/kiss-community/repo/releases/download/$ver
-user=mcpcpc
-sdX=sda
+bootp=/dev/sda
 
 # format and partition drive, sdX
 cd $HOME
-mkfs.ext4 -F /dev/sda1
+printf "o\nn\np\n1\n\n\nw\n" | sudo fdisk "$bootp"
+mkfs.ext4 -F "$bootp"
+#mkfs.ext4 -F /dev/sda1
 #mkfs.ext4 -F /dev/sda3
 #mkfs.vfat -F 32 /dev/sda2
 
 # prepare drive for chroot/boostrap process
-mount /dev/sda3 /mnt
+#mount /dev/sda3 /mnt
+mount "$bootp1" /mnt
 wget "$url/kiss-chroot-$ver.tar.xz" 
 tar xvf kiss-chroot-$ver.tar.xz -C /mnt --strip-components 1
 #mount /dev/sda1 /mnt/boot
@@ -34,12 +36,9 @@ export CFLAGS="-O1 -pipe -march=native"
 export CXXFLAGS="-O1 -pipe -march=native"
 export MAKEFLAGS="-j2"
 export KISS_PROMPT=0
-export KISS_PATH=''
-export KISS_PATH=$KISS_PATH:$HOME/repos/repo/core
-export KISS_PATH=$KISS_PATH:$HOME/repos/repo/extra
-export KISS_PATH=$KISS_PATH:$HOME/repos/repo/xorg
-mkdir $HOME/repos
-cd $HOME/repos
+export KISS_PATH=/root/repos/repo/core:/root/repos/repo/extra
+mkdir /root/repos
+cd /root/repos
 git clone https://github.com/kiss-community/repo
 kiss update
 cd /var/db/kiss/installed && kiss build *
