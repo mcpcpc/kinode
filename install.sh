@@ -38,6 +38,9 @@ export KISS_PATH=''
 export KISS_PATH=$KISS_PATH:$HOME/repos/repo/core
 export KISS_PATH=$KISS_PATH:$HOME/repos/repo/extra
 export KISS_PATH=$KISS_PATH:$HOME/repos/repo/xorg
+mkdir $HOME/repos
+cd $HOME/repos
+git clone https://github.com/kiss-community/repo
 kiss update
 cd /var/db/kiss/installed && kiss build *
 kiss b e2fsprogs && kiss i e2fsprogs
@@ -61,6 +64,3 @@ EOT
 # addgroup mc video
 # addgroup mv audio
 # su mc
-# mkdir $HOME/repos
-# cd $HOME/repos
-# git clone https://github.com/kiss-community/repo  
