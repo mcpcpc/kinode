@@ -56,6 +56,11 @@ wget https://raw.githubusercontent.com/mcpcpc/kinode/master/.config
 make -j1
 make modules_install
 make install
+mv /boot/vmlinuz /boot/vmlinuz-5.10.47
+mv /boot/System.map /boot/System.map-5.10.47
+kiss b grub && kiss i grub
+grub-install /dev/sda1
+grub-mkconfig -o /boot/grub/grub.cfg
 echo $$
 EOT
 
