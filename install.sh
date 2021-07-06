@@ -10,7 +10,7 @@ url=https://github.com/kiss-community/repo/releases/download/$ver
 
 # format and partition drive, sdX
 cd $HOME
-printf "o\nn\np\n1\n\n\nw\n" | sudo fdisk /dev/sda
+printf "o\nn\np\n1\n\n\nw\n" | fdisk /dev/sda
 mkfs.ext4 -F /dev/sda1
 #mkfs.ext4 -F /dev/sda3
 #mkfs.vfat -F 32 /dev/sda2
