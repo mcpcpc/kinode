@@ -29,6 +29,7 @@ mkdir /root/repos
 cd /root/repos
 git clone https://github.com/kiss-community/repo
 kiss update
+kiss update
 cd /var/db/kiss/installed && kiss build *
 kiss b e2fsprogs && kiss i e2fsprogs
 kiss b dosfstools && kiss i dosfstools
