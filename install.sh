@@ -7,12 +7,13 @@
 # set global variables
 ver=2021.5-1
 url=https://github.com/kiss-community/repo/releases/download/$ver
+dev=/dev/sda
 
 # format and partition drive, sdX
 #printf "o\nn\np\n1\n\n\nw\n" | fdisk /dev/sda
 #mkfs.ext4 -F /dev/sda1
-printf "o\nw\n" | fdisk /dev/sda
-mkfs.ext4 -F /dev/sda
+printf "o\nw\n" | fdisk $dev
+mkfs.ext4 -F $dev
 
 # prepare drive for chroot/boostrap process
 #mount /dev/sda1 /mnt
