@@ -58,7 +58,7 @@ make install
 mv /boot/vmlinuz /boot/vmlinuz-5.10.47
 mv /boot/System.map /boot/System.map-5.10.47
 kiss b grub && kiss i grub
-grub-install /dev/sda1
+grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 echo $$
 EOT
