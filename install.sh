@@ -42,7 +42,7 @@ cd /var/db/kiss/installed && kiss build *
 kiss b e2fsprogs && kiss i e2fsprogs
 kiss b dosfstools && kiss i dosfstools
 kiss b eudev && kiss i eudev
-#kiss b libelf && kiss i libelf
+kiss b libelf && kiss i libelf
 kiss b ncurses && kiss i ncurses
 kiss b openssh && kiss i openssh
 wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.47.tar.xz -P /usr/src
