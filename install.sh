@@ -7,19 +7,17 @@
 # set global variables
 ver=2021.5-1
 url=https://github.com/kiss-community/repo/releases/download/$ver
-bootp=/dev/sda
 
 # format and partition drive, sdX
 cd $HOME
-printf "o\nn\np\n1\n\n\nw\n" | sudo fdisk "$bootp"
-mkfs.ext4 -F "$bootp"
-#mkfs.ext4 -F /dev/sda1
+printf "o\nn\np\n1\n\n\nw\n" | sudo fdisk /dev/sda
+mkfs.ext4 -F /dev/sda1
 #mkfs.ext4 -F /dev/sda3
 #mkfs.vfat -F 32 /dev/sda2
 
 # prepare drive for chroot/boostrap process
 #mount /dev/sda3 /mnt
-mount "$bootp1" /mnt
+mount /dev/sda1 /mnt
 wget "$url/kiss-chroot-$ver.tar.xz" 
 tar xvf kiss-chroot-$ver.tar.xz -C /mnt --strip-components 1
 #mount /dev/sda1 /mnt/boot
