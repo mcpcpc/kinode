@@ -46,6 +46,9 @@ make install
 mv /boot/vmlinuz /boot/vmlinuz-5.10.47
 mv /boot/System.map /boot/System.map-5.10.47
 kiss b grub && kiss i grub
+echo -e "/dev/sda\t/\text4\tsomthingsomething\t0 1" > /etc/fstab
+cd /etc/default
+wget https://raw.githubusercontent.com/mcpcpc/kinode/master/grub
 grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 kiss b baseinit && kiss i baseinit
