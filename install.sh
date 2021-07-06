@@ -11,20 +11,11 @@ url=https://github.com/kiss-community/repo/releases/download/$ver
 # format and partition drive, sdX
 printf "o\nn\np\n1\n\n\nw\n" | fdisk /dev/sda
 mkfs.ext4 -F /dev/sda1
-#mkfs.ext4 -F /dev/sda3
-#mkfs.vfat -F 32 /dev/sda2
 
 # prepare drive for chroot/boostrap process
-#mount /dev/sda3 /mnt
 mount /dev/sda1 /mnt
 wget "$url/kiss-chroot-$ver.tar.xz" -P "$HOME"
 tar xvf "$HOME/kiss-chroot-$ver.tar.xz" -C /mnt --strip-components 1
-#mount /dev/sda1 /mnt/boot
-#mkdir /mnt/boot/efi
-#mount /dev/sda2 /mnt/boot/efi
-#echo -e "/dev/sda1\t\t/boot\t\tvfat\t\tnoauto,noatime\t1 2" >> /mnt/etc/fstab
-#echo -e "/dev/sda3\t\t/\t\text4\t\tnoatime\t\t0 1" >> /mnt/etc/fstab
-#echo "$user" >> /mnt/etc/hostname
 
 # chroot/bootstrap KISS Linux, setup new user 
 # note: variables will not work here. All paths should be absolute.
