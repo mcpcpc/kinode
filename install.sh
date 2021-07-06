@@ -63,9 +63,3 @@ ln -s /etc/sv/sshd/ /var/service
 echo "kinode" | passwd --stdin root
 echo $$
 EOT
-
-## post installation steps (e.g. after reboot
-# adduser mc
-# addgroup mc video
-# addgroup mv audio
-# su mc
