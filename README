@@ -1,6 +1,16 @@
 # Kinode
 
-Non-functional at this time.
+Scripts for Linode VPS unattended KISS Linux installation
+
+## Background
+
+Functional at this time.  
+
+
+## Todo
+
+- [ ] Minimize .config file modules.
+- [ ] Add swap partition.
 
 ## References:
 
