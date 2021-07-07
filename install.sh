@@ -46,7 +46,7 @@ kiss b openresolv && kiss i openresolv
 wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.47.tar.xz -P /usr/src
 tar xvf /usr/src/linux-*
 cd /usr/src/linux-*
-wget https://raw.githubusercontent.com/mcpcpc/kinode/master/.config.test
+wget https://raw.githubusercontent.com/mcpcpc/kinode/master/.config
 make -j1
 make modules_install
 make install
