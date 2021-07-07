@@ -10,13 +10,10 @@ url=https://github.com/kiss-community/repo/releases/download/$ver
 dev=/dev/sda
 
 # format and partition drive, sdX
-#printf "o\nn\np\n1\n\n\nw\n" | fdisk /dev/sda
-#mkfs.ext4 -F /dev/sda1
 printf "o\nw\n" | fdisk $dev
 mkfs.ext4 -F $dev
 
 # prepare drive for chroot/boostrap process
-#mount /dev/sda1 /mnt
 mount /dev/sda /mnt
 wget "$url/kiss-chroot-$ver.tar.xz" -P "$HOME"
 tar xvf "$HOME/kiss-chroot-$ver.tar.xz" -C /mnt --strip-components 1
@@ -53,7 +50,6 @@ make install
 mv /boot/vmlinuz /boot/vmlinuz-5.10.47
 mv /boot/System.map /boot/System.map-5.10.47
 kiss b grub && kiss i grub
-#echo -e "/dev/sda1\t/\text4\terrors=remount-ro\t0 1" > /etc/fstab
 echo -e "/dev/sda\t/\text4\terrors=remount-ro\t0 1" > /etc/fstab
 cd /etc/default
 mv grub grub.bak
