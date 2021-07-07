@@ -42,6 +42,7 @@ kiss b libelf && kiss i libelf
 kiss b ncurses && kiss i ncurses
 kiss b openssh && kiss i openssh
 kiss b perl && kiss i perl
+kiss b openresolv && kiss i openresolv
 wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.47.tar.xz -P /usr/src
 tar xvf /usr/src/linux-*
 cd /usr/src/linux-*
@@ -55,8 +56,9 @@ kiss b grub && kiss i grub
 #echo -e "/dev/sda1\t/\text4\terrors=remount-ro\t0 1" > /etc/fstab
 echo -e "/dev/sda\t/\text4\terrors=remount-ro\t0 1" > /etc/fstab
 cd /etc/default
+mv grub grub.bak
 wget https://raw.githubusercontent.com/mcpcpc/kinode/master/grub
-grub-install /dev/sda
+grub-install --force /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 kiss b baseinit && kiss i baseinit
 ln -s /etc/sv/udevd/ /var/service
