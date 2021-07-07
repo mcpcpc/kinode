@@ -31,6 +31,7 @@ kiss b libelf && kiss i libelf
 kiss b ncurses && kiss i ncurses
 kiss b openssh && kiss i openssh
 kiss b perl && kiss i perl
+kiss b grub && kiss i grub
 kiss b openresolv && kiss i openresolv
 wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.47.tar.xz -P /usr/src
 cd /usr/src
@@ -42,7 +43,6 @@ make INSTALL_MOD_STRIP=1 modules_install
 make install
 mv /boot/vmlinuz /boot/vmlinuz-5.10.47
 mv /boot/System.map /boot/System.map-5.10.47
-kiss b grub && kiss i grub
 echo -e "/dev/sda\t/\text4\terrors=remount-ro\t0 1" > /etc/fstab
 cd /etc/default
 mv grub grub.bak
