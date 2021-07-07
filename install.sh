@@ -38,7 +38,7 @@ tar xvf /usr/src/linux-*
 cd linux-*
 wget https://raw.githubusercontent.com/mcpcpc/kinode/master/.config
 make -j1
-make modules_install
+make INSTALL_MOD_STRIP=1 modules_install
 make install
 mv /boot/vmlinuz /boot/vmlinuz-5.10.47
 mv /boot/System.map /boot/System.map-5.10.47
