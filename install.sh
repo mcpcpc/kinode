@@ -33,8 +33,9 @@ kiss b openssh && kiss i openssh
 kiss b perl && kiss i perl
 kiss b openresolv && kiss i openresolv
 wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.47.tar.xz -P /usr/src
+cd /usr/src
 tar xvf /usr/src/linux-*
-cd /usr/src/linux-*
+cd linux-*
 wget https://raw.githubusercontent.com/mcpcpc/kinode/master/.config
 make -j1
 make modules_install
