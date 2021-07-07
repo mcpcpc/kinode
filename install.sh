@@ -4,22 +4,14 @@
 # Description: KISS Linux OS installation script for a Linode VPS
 # Author:      Michael Czigler
 
-# set global variables
 ver=2021.5-1
 url=https://github.com/kiss-community/repo/releases/download/$ver
 dev=/dev/sda
-
-# format and partition drive, sdX
 printf "o\nw\n" | fdisk $dev
 mkfs.ext4 -F $dev
-
-# prepare drive for chroot/boostrap process
 mount /dev/sda /mnt
 wget "$url/kiss-chroot-$ver.tar.xz" -P "$HOME"
 tar xvf "$HOME/kiss-chroot-$ver.tar.xz" -C /mnt --strip-components 1
-
-# chroot/bootstrap KISS Linux, setup new user 
-# note: variables will not work here. All paths should be absolute.
 /mnt/bin/kiss-chroot /mnt <<"EOT"
 export CFLAGS="-O1 -pipe -march=native"
 export CXXFLAGS="$CFLAGS"
