@@ -15,6 +15,7 @@ url=https://github.com/kisslinux/repo/releases/download/$ver
 kurl=https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-$kver.tar.xz
 dev=/dev/sda
 dest=/mnt
+cwd=$(pwd)
 
 printf "o\nw\n" | fdisk $dev
 mkfs.ext4 -F $dev
@@ -25,6 +26,11 @@ mkdir -p $dest/usr/src
 wget $kurl -P $dest/usr/src
 #cd $dest/usr/src
 #tar xvf linux-*
+#cd linux-*
+#cp $cwd/files/.config ./
+#cd $dest/etc/default
+#mv grub grub.bak
+#cp $cwd/files/grub ./
 
 $dest/bin/kiss-chroot $dest <<"EOT"
 export CFLAGS="-O2 -pipe -march=native"
