@@ -19,6 +19,7 @@ mkfs.ext4 -F $dev
 mount /dev/sda /mnt
 wget "$url/kiss-chroot-$ver.tar.xz" -P "$HOME"
 tar xvf "$HOME/kiss-chroot-$ver.tar.xz" -C /mnt --strip-components 1
+mkdir -p /mnt/usr/src
 wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.47.tar.xz -P /mnt/usr/src
 /mnt/bin/kiss-chroot /mnt <<"EOT"
 export CFLAGS="-O1 -pipe -march=native"
