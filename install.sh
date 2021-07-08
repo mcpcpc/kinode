@@ -9,9 +9,7 @@
 # at least 2GB of RAM for the initial VPS setup. The VPS plan can
 # always be changed later. 
 
-#ver=2021.5-1
 ver=2021.7-4
-#url=https://github.com/kiss-community/repo/releases/download/$ver
 url=https://github.com/kisslinux/repo/releases/download/$ver
 kver=5.10.47
 kurl=https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-$kver.tar.xz
