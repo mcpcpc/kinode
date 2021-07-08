@@ -23,6 +23,9 @@ wget "$url/kiss-chroot-$ver.tar.xz" -P "$HOME"
 tar xvf "$HOME/kiss-chroot-$ver.tar.xz" -C $dest --strip-components 1
 mkdir -p $dest/usr/src
 wget $kurl -P $dest/usr/src
+#cd $dest/usr/src
+#tar xvf linux-*
+
 $dest/bin/kiss-chroot $dest <<"EOT"
 export CFLAGS="-O2 -pipe -march=native"
 export CXXFLAGS="-O2 -pipe -march=native"
