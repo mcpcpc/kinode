@@ -13,6 +13,9 @@
 ver=2021.7-4
 #url=https://github.com/kiss-community/repo/releases/download/$ver
 url=https://github.com/kisslinux/repo/releases/download/$ver
+kver=5.10.47
+kurl=https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-$kver.tar.xz
+
 dev=/dev/sda
 printf "o\nw\n" | fdisk $dev
 mkfs.ext4 -F $dev
@@ -20,7 +23,7 @@ mount /dev/sda /mnt
 wget "$url/kiss-chroot-$ver.tar.xz" -P "$HOME"
 tar xvf "$HOME/kiss-chroot-$ver.tar.xz" -C /mnt --strip-components 1
 mkdir -p /mnt/usr/src
-wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.47.tar.xz -P /mnt/usr/src
+wget $kurl -P /mnt/usr/src
 /mnt/bin/kiss-chroot /mnt <<"EOT"
 export CFLAGS="-O1 -pipe -march=native"
 export CXXFLAGS="-O1 -pipe -march=native"
