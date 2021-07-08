@@ -45,7 +45,7 @@ kiss b dhcpcd && kiss i dhcpcd
 cd /usr/src
 tar xvf /usr/src/linux-*
 cd linux-*
-wget https://raw.githubusercontent.com/mcpcpc/kinode/master/.config
+curl https://raw.githubusercontent.com/mcpcpc/kinode/master/.config > .config
 make -j1
 make INSTALL_MOD_STRIP=1 modules_install
 make install
@@ -54,7 +54,7 @@ mv /boot/System.map /boot/System.map-5.10.47
 echo -e "/dev/sda\t/\text4\terrors=remount-ro\t0 1" > /etc/fstab
 cd /etc/default
 mv grub grub.bak
-wget https://raw.githubusercontent.com/mcpcpc/kinode/master/grub
+curl https://raw.githubusercontent.com/mcpcpc/kinode/master/grub > grub
 grub-install --force /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 kiss b baseinit && kiss i baseinit
