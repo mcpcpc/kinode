@@ -10,8 +10,8 @@
 # always be changed later. 
 
 ver=2021.7-4
-url=https://github.com/kisslinux/repo/releases/download/$ver
 kver=5.10.47
+url=https://github.com/kisslinux/repo/releases/download/$ver
 kurl=https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-$kver.tar.xz
 dev=/dev/sda
 dest=/mnt
