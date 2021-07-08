@@ -32,7 +32,6 @@ export KISS_PROMPT=0
 export KISS_PATH=/root/repos/repo/core:/root/repos/repo/extra
 mkdir /root/repos
 cd /root/repos
-#git clone https://github.com/kiss-community/repo
 git clone https://github.com/kisslinux/repo
 kiss update
 kiss update
@@ -43,7 +42,6 @@ kiss b eudev && kiss i eudev
 kiss b libelf && kiss i libelf
 kiss b ncurses && kiss i ncurses
 kiss b openssh && kiss i openssh
-#kiss b perl && kiss i perl
 kiss b grub && kiss i grub
 kiss b dhcpcd && kiss i dhcpcd
 cd /usr/src
