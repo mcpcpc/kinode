@@ -25,8 +25,8 @@ tar xvf "$HOME/kiss-chroot-$ver.tar.xz" -C /mnt --strip-components 1
 mkdir -p /mnt/usr/src
 wget $kurl -P /mnt/usr/src
 /mnt/bin/kiss-chroot /mnt <<"EOT"
-export CFLAGS="-O1 -pipe -march=native"
-export CXXFLAGS="-O1 -pipe -march=native"
+export CFLAGS="-O2 -pipe -march=native"
+export CXXFLAGS="-O2 -pipe -march=native"
 export MAKEFLAGS="-j1"
 export KISS_PROMPT=0
 export KISS_PATH=/root/repos/repo/core:/root/repos/repo/extra
