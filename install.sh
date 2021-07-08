@@ -48,7 +48,7 @@ kiss b dhcpcd && kiss i dhcpcd
 cd /usr/src
 tar xvf /usr/src/linux-*
 cd linux-*
-curl https://raw.githubusercontent.com/mcpcpc/kinode/master/.config > .config
+curl https://raw.githubusercontent.com/mcpcpc/kinode/master/files/.config > .config
 curl https://k1sslinux.org/wiki/kernel/patches/kernel-no-perl.patch > kernel-no-perl.patch
 patch -p1 < kernel-no-perl.patch
 make -j1
@@ -59,7 +59,7 @@ mv /boot/System.map /boot/System.map-5.10.47
 echo -e "/dev/sda\t/\text4\terrors=remount-ro\t0 1" > /etc/fstab
 cd /etc/default
 mv grub grub.bak
-curl https://raw.githubusercontent.com/mcpcpc/kinode/master/grub > grub
+curl https://raw.githubusercontent.com/mcpcpc/kinode/master/files/grub > grub
 grub-install --force /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 kiss b baseinit && kiss i baseinit
