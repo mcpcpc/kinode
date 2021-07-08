@@ -35,8 +35,7 @@ export KISS_PATH=/root/repos/repo/core:/root/repos/repo/extra
 mkdir /root/repos
 cd /root/repos
 git clone https://github.com/kisslinux/repo
-kiss update
-kiss update
+kiss update && kiss update
 cd /var/db/kiss/installed && kiss build *
 kiss b e2fsprogs && kiss i e2fsprogs
 kiss b dosfstools && kiss i dosfstools
