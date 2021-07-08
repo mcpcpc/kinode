@@ -33,7 +33,6 @@ kiss b openssh && kiss i openssh
 kiss b perl && kiss i perl
 kiss b grub && kiss i grub
 kiss b dhcpcd && kiss i dhcpcd
-kiss b sudo && kiss i sudo
 wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.47.tar.xz -P /usr/src
 cd /usr/src
 tar xvf /usr/src/linux-*
@@ -53,6 +52,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 kiss b baseinit && kiss i baseinit
 ln -s /etc/sv/udevd/ /var/service
 ln -s /etc/sv/sshd/ /var/service
+ls -s /etc/sv/dhcpcd/ /var/service
 passwd root
 echo $$
 EOT
