@@ -6,12 +6,6 @@ Scripts for Linode VPS unattended KISS Linux installation
 
 Functional at this time.  
 
-
-## Todo
-
-- [ ] Minimize .config file modules.
-- [ ] Add swap partition.
-
 ## References:
 
 * https://wiki.archlinux.org/title/GRUB#Master_Boot_Record_(MBR)_specific_instructions
