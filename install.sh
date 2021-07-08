@@ -4,8 +4,10 @@
 # Description: KISS Linux OS installation script for a Linode VPS
 # Author:      Michael Czigler
 
-ver=2021.5-1
-url=https://github.com/kiss-community/repo/releases/download/$ver
+#ver=2021.5-1
+ver=2021.7-4
+#url=https://github.com/kiss-community/repo/releases/download/$ver
+url=https://github.com/kisslinux/repo/releases/download/$ver
 dev=/dev/sda
 printf "o\nw\n" | fdisk $dev
 mkfs.ext4 -F $dev
@@ -20,7 +22,8 @@ export KISS_PROMPT=0
 export KISS_PATH=/root/repos/repo/core:/root/repos/repo/extra
 mkdir /root/repos
 cd /root/repos
-git clone https://github.com/kiss-community/repo
+#git clone https://github.com/kiss-community/repo
+git clone https://github.com/kisslinux/repo
 kiss update
 kiss update
 cd /var/db/kiss/installed && kiss build *
