@@ -33,6 +33,7 @@ kiss b openssh && kiss i openssh
 kiss b perl && kiss i perl
 kiss b grub && kiss i grub
 kiss b dhcpcd && kiss i dhcpcd
+kiss b sudo && kiss i sudo
 wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.47.tar.xz -P /usr/src
 cd /usr/src
 tar xvf /usr/src/linux-*
