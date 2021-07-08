@@ -33,7 +33,7 @@ kiss b eudev && kiss i eudev
 kiss b libelf && kiss i libelf
 kiss b ncurses && kiss i ncurses
 kiss b openssh && kiss i openssh
-kiss b perl && kiss i perl
+#kiss b perl && kiss i perl
 kiss b grub && kiss i grub
 kiss b dhcpcd && kiss i dhcpcd
 wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.47.tar.xz -P /usr/src
