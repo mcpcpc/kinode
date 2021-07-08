@@ -16,15 +16,16 @@ url=https://github.com/kisslinux/repo/releases/download/$ver
 kver=5.10.47
 kurl=https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-$kver.tar.xz
 dev=/dev/sda
+dest=/mnt
 
 printf "o\nw\n" | fdisk $dev
 mkfs.ext4 -F $dev
-mount $dev /mnt
+mount $dev $dest
 wget "$url/kiss-chroot-$ver.tar.xz" -P "$HOME"
-tar xvf "$HOME/kiss-chroot-$ver.tar.xz" -C /mnt --strip-components 1
-mkdir -p /mnt/usr/src
-wget $kurl -P /mnt/usr/src
-/mnt/bin/kiss-chroot /mnt <<"EOT"
+tar xvf "$HOME/kiss-chroot-$ver.tar.xz" -C $dest --strip-components 1
+mkdir -p $dest/usr/src
+wget $kurl -P $dest/usr/src
+$dest/bin/kiss-chroot $dest <<"EOT"
 export CFLAGS="-O2 -pipe -march=native"
 export CXXFLAGS="-O2 -pipe -march=native"
 export MAKEFLAGS="-j1"
