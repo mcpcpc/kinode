@@ -31,6 +31,7 @@ wget $kurl -P $dest/usr/src
 #cd $dest/etc/default
 #mv grub grub.bak
 #cp $cwd/files/grub ./
+#echo -e "$dev\t/\text4\terrors=remount-ro\t0 1" > $dest/etc/fstab
 
 $dest/bin/kiss-chroot $dest <<"EOT"
 export CFLAGS="-O2 -pipe -march=native"
