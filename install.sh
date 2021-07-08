@@ -46,6 +46,8 @@ cd /usr/src
 tar xvf /usr/src/linux-*
 cd linux-*
 curl https://raw.githubusercontent.com/mcpcpc/kinode/master/.config > .config
+curl https://k1sslinux.org/wiki/kernel/patches/kernel-no-perl.patch > kernel-no-perl.patch
+patch -p1 < kernel-no-perl.patch
 make -j1
 make INSTALL_MOD_STRIP=1 modules_install
 make install
