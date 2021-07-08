@@ -3,6 +3,11 @@
 # Kinode
 # Description: KISS Linux OS installation script for a Linode VPS
 # Author:      Michael Czigler
+# 
+# The following script is intended for bootstrapping a minimal KISS
+# Linux server on linode.  In order to avoid OOM messages, I recommend
+# at least 2GB of RAM for the initial VPS setup. The VPS plan can
+# always be changed later. 
 
 #ver=2021.5-1
 ver=2021.7-4
