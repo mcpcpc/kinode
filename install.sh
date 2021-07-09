@@ -27,7 +27,7 @@ wget $kurl -P $dest/usr/src
 cd $dest/usr/src && tar xvf linux-*
 cd linux-* && cp $cwd/files/.config ./ && cp $cwd/files/kernel-no-perl.patch ./ 
 #cd $dest/etc/default && mv grub grub.bak && cp $cwd/files/grub ./
-#echo -e "$dev\t/\text4\terrors=remount-ro\t0 1" > $dest/etc/fstab
+echo -e "$dev\t/\text4\terrors=remount-ro\t0 1" > $dest/etc/fstab
 
 $dest/bin/kiss-chroot $dest <<"EOT"
 export CFLAGS="-O2 -pipe -march=native"
@@ -53,7 +53,6 @@ make INSTALL_MOD_STRIP=1 modules_install
 make install
 mv /boot/vmlinuz /boot/vmlinuz-5.10.47
 mv /boot/System.map /boot/System.map-5.10.47
-echo -e "/dev/sda\t/\text4\terrors=remount-ro\t0 1" > /etc/fstab
 cd /etc/default
 mv grub grub.bak
 curl https://raw.githubusercontent.com/mcpcpc/kinode/master/files/grub > grub
