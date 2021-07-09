@@ -24,8 +24,8 @@ wget "$url/kiss-chroot-$ver.tar.xz" -P "$HOME"
 tar xvf "$HOME/kiss-chroot-$ver.tar.xz" -C $dest --strip-components 1
 mkdir -p $dest/usr/src
 wget $kurl -P $dest/usr/src
-#cd $dest/usr/src && tar xvf linux-*
-#cd linux-* && cp $cwd/files/.config ./ && cp $cwd/files/kernel-no-perl.patch ./ 
+cd $dest/usr/src && tar xvf linux-*
+cd linux-* && cp $cwd/files/.config ./ && cp $cwd/files/kernel-no-perl.patch ./ 
 #cd $dest/etc/default && mv grub grub.bak && cp $cwd/files/grub ./
 #echo -e "$dev\t/\text4\terrors=remount-ro\t0 1" > $dest/etc/fstab
 
@@ -47,12 +47,7 @@ kiss b ncurses && kiss i ncurses
 kiss b openssh && kiss i openssh
 kiss b grub && kiss i grub
 kiss b dhcpcd && kiss i dhcpcd
-cd /usr/src
-tar xvf /usr/src/linux-*
-cd linux-*
-curl https://raw.githubusercontent.com/mcpcpc/kinode/master/files/.config > .config
-curl https://k1sslinux.org/wiki/kernel/patches/kernel-no-perl.patch > kernel-no-perl.patch
-patch -p1 < kernel-no-perl.patch
+cd /usr/src/linux-* && patch -p1 < kernel-no-perl.patch
 make -j1
 make INSTALL_MOD_STRIP=1 modules_install
 make install
