@@ -41,7 +41,9 @@ The following Linode VPS settings are recommended:
 
 Boot into Rescue Mode and run the following commands:
 
-	$ git clone 
+	$ git clone https://github.com/mcpcpc/kinode
+	$ cd kinode
+	$ ./install.sh
 
 ## References:
 
