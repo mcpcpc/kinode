@@ -2,9 +2,46 @@
 
 Scripts for Linode VPS unattended KISS Linux installation
 
-## Background
+## Prerequisites
 
-Functional at this time.  
+The following Linode VPS settings are recommended:
+
+	Summary:
+		1 CPU Core
+		50 GB Storage
+		2 GB RAM
+		0 Volumes
+	Storage:
+		Disk1:
+			Label: boot
+			Type: raw
+			Size: 25600 MB (or larger)
+	Configurations:
+		Configuration1:
+			Label: boot
+			Virtual Machine:
+				VM Mode: Paravirtualization
+			Boot Settings:
+				Select a Kernel: Direct Disk
+				Run Level: Run Default Level
+				Memory Limit: Do not set any limits on memory usage
+			Block Device Assignment:
+				/dev/sda: boot
+				/dev/sdb: None
+				Root Device: /dev/sda
+			Filesystem/Boot Helpers:
+				Enable distro helper: off
+				Disable updatedb: off
+				Enable modules.dep helper: off
+				Auto-mount devtmpfs: off
+				Auto-configure networking: off
+			
+
+## Usage
+
+Boot into Rescue Mode and run the following commands:
+
+	$ git clone 
 
 ## References:
 
