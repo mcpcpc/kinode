@@ -25,7 +25,8 @@ tar xvf "$HOME/kiss-chroot-$ver.tar.xz" -C $dest --strip-components 1
 mkdir -p $dest/usr/src
 wget $kurl -P $dest/usr/src
 cd $dest/usr/src && tar xvf linux-*
-cd linux-* && cp $cwd/files/.config ./ && cp $cwd/files/kernel-no-perl.patch ./ 
+cd linux-* && cp $cwd/files/.config ./ && cp $cwd/files/kernel-no-perl.patch ./
+cp $cwd/files/.profile /root
 #cd $dest/etc/default && mv grub grub.bak && cp $cwd/files/grub ./
 echo -e "$dev\t/\text4\terrors=remount-ro\t0 1" > $dest/etc/fstab
 
