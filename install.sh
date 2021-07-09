@@ -63,6 +63,6 @@ kiss b baseinit && kiss i baseinit
 ln -s /etc/sv/udevd/ /var/service
 ln -s /etc/sv/sshd/ /var/service
 ls -s /etc/sv/dhcpcd/ /var/service
-passwd root
+#passwd root
 echo $$
 EOT
