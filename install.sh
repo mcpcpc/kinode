@@ -31,11 +31,7 @@ cp $cwd/files/.profile /root
 echo -e "$dev\t/\text4\terrors=remount-ro\t0 1" > $dest/etc/fstab
 
 $dest/bin/kiss-chroot $dest <<"EOT"
-export CFLAGS="-O2 -pipe -march=native"
-export CXXFLAGS="-O2 -pipe -march=native"
-export MAKEFLAGS="-j1"
-export KISS_PROMPT=0
-export KISS_PATH=/root/repos/repo/core:/root/repos/repo/extra
+source /root/.profile
 mkdir /root/repos
 cd /root/repos && git clone https://github.com/kisslinux/repo
 kiss update && kiss update
