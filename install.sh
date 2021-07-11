@@ -27,7 +27,7 @@ wget $kurl -P $dest/usr/src
 cd $dest/usr/src && tar xvf linux-*
 cd linux-* && cp $cwd/files/.config ./ && cp $cwd/files/kernel-no-perl.patch ./
 cp $cwd/files/.profile $dest/root
-cp $cwd/files/bootstrap $dest/root
-#cd $dest/etc/default && mv grub grub.bak && cp $cwd/files/grub ./
+cp $cwd/bootstrap $dest/root
+cp $cwd/files/grub $dest/root
 echo -e "$dev\t/\text4\terrors=remount-ro\t0 1" > $dest/etc/fstab
 $dest/bin/kiss-chroot $dest < sh /root/bootstrap.sh
