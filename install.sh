@@ -26,39 +26,8 @@ mkdir -p $dest/usr/src
 wget $kurl -P $dest/usr/src
 cd $dest/usr/src && tar xvf linux-*
 cd linux-* && cp $cwd/files/.config ./ && cp $cwd/files/kernel-no-perl.patch ./
-cp $cwd/files/.profile /root
+cp $cwd/files/.profile $dest/root
+cp $cwd/files/bootstrap $dest/root
 #cd $dest/etc/default && mv grub grub.bak && cp $cwd/files/grub ./
 echo -e "$dev\t/\text4\terrors=remount-ro\t0 1" > $dest/etc/fstab
-
-$dest/bin/kiss-chroot $dest <<"EOT"
-source /root/.profile
-mkdir /root/repos
-cd /root/repos && git clone https://github.com/kisslinux/repo
-kiss update && kiss update
-cd /var/db/kiss/installed && kiss build *
-kiss b e2fsprogs && kiss i e2fsprogs
-kiss b dosfstools && kiss i dosfstools
-kiss b eudev && kiss i eudev
-kiss b libelf && kiss i libelf
-kiss b ncurses && kiss i ncurses
-kiss b openssh && kiss i openssh
-kiss b grub && kiss i grub
-kiss b dhcpcd && kiss i dhcpcd
-cd /usr/src/linux-* && patch -p1 < kernel-no-perl.patch
-make -j1
-make INSTALL_MOD_STRIP=1 modules_install
-make install
-mv /boot/vmlinuz /boot/vmlinuz-5.10.47
-mv /boot/System.map /boot/System.map-5.10.47
-cd /etc/default
-mv grub grub.bak
-curl https://raw.githubusercontent.com/mcpcpc/kinode/master/files/grub > grub
-grub-install --force /dev/sda
-grub-mkconfig -o /boot/grub/grub.cfg
-kiss b baseinit && kiss i baseinit
-ln -s /etc/sv/udevd/ /var/service
-ln -s /etc/sv/sshd/ /var/service
-ls -s /etc/sv/dhcpcd/ /var/service
-#passwd root
-echo $$
-EOT
+$dest/bin/kiss-chroot $dest < sh /root/bootstrap.sh
