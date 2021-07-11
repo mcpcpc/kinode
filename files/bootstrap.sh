@@ -1,4 +1,5 @@
 #!/bin/sh -e
+export HOME=/root
 source /root/.profile
 mkdir /root/repos
 cd /root/repos && git clone https://github.com/kisslinux/repo
