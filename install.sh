@@ -29,4 +29,5 @@ cd linux-* && cp $cwd/files/.config ./ && cp $cwd/files/kernel-no-perl.patch ./
 cp $cwd/files/.profile $dest/root
 cp $cwd/files/bootstrap.sh $dest/root
 cp $cwd/files/grub $dest/root
+echo -e "$dev\t/\text4\terrors=remount-ro\t0 1" > $dest/etc/fstab
 $dest/bin/kiss-chroot $dest /root/bootstrap.sh
