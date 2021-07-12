@@ -20,7 +20,8 @@ mv /boot/vmlinuz /boot/vmlinuz-5.10.47
 mv /boot/System.map /boot/System.map-5.10.47
 cd /etc/default
 mv grub grub.bak
-curl https://raw.githubusercontent.com/mcpcpc/kinode/master/files/grub > grub
+mv /root/grub ./
+#curl https://raw.githubusercontent.com/mcpcpc/kinode/master/files/grub > grub
 grub-install --force /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 kiss b baseinit && kiss i baseinit
