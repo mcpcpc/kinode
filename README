@@ -22,7 +22,7 @@ The following Linode VPS settings are recommended:
 			Virtual Machine:
 				VM Mode: Paravirtualization
 			Boot Settings:
-				Select a Kernel: Direct Disk
+				Select a Kernel: GRUB 2
 				Run Level: Run Default Level
 				Memory Limit: Do not set any limits on memory usage
 			Block Device Assignment:
