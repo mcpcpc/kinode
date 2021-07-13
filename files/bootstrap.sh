@@ -2,15 +2,15 @@
 source /root/.profile
 mkdir /root/repos
 cd /root/repos && git clone https://github.com/kisslinux/repo
-kiss update && kiss update
-cd /var/db/kiss/installed && kiss build *
-kiss b e2fsprogs && kiss i e2fsprogs
-kiss b dosfstools && kiss i dosfstools
-kiss b eudev && kiss i eudev
-kiss b libelf && kiss i libelf
-kiss b openssh && kiss i openssh
-kiss b grub && kiss i grub
-kiss b dhcpcd && kiss i dhcpcd
+kiss u && kiss u
+cd /var/db/kiss/installed && kiss b *
+kiss b e2fsprogs
+kiss b dosfstools
+kiss b eudev
+kiss b libelf
+kiss b openssh
+kiss b grub
+kiss b dhcpcd
 cd /usr/src/linux-* && patch -p1 < kernel-no-perl.patch
 make -j1
 make INSTALL_MOD_STRIP=1 modules_install
