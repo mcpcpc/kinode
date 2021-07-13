@@ -8,7 +8,6 @@ kiss b e2fsprogs && kiss i e2fsprogs
 kiss b dosfstools && kiss i dosfstools
 kiss b eudev && kiss i eudev
 kiss b libelf && kiss i libelf
-kiss b ncurses && kiss i ncurses
 kiss b openssh && kiss i openssh
 kiss b grub && kiss i grub
 kiss b dhcpcd && kiss i dhcpcd
