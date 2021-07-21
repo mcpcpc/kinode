@@ -1,5 +1,4 @@
 #!/bin/sh -e
-source /root/.profile
 mkdir /root/repos
 cd /root/repos && git clone https://github.com/kisslinux/repo
 kiss u && kiss u
