@@ -1,6 +1,5 @@
 #!/bin/sh -e
-mkdir /root/repos
-cd /root/repos && git clone https://github.com/kisslinux/repo
+cd /root && git clone https://github.com/kisslinux/repo
 kiss u && kiss u
 cd /var/db/kiss/installed && kiss b *
 kiss b e2fsprogs
