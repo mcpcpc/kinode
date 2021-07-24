@@ -4,7 +4,7 @@ kiss u && kiss u
 cd /var/db/kiss/installed && kiss b *
 kiss b e2fsprogs
 kiss b dosfstools
-kiss b eudev
+#kiss b eudev
 kiss b libelf
 kiss b openssh
 kiss b grub
